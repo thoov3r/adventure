@@ -1,5 +1,7 @@
 package edu.psu.cmpsc221.model;
 
+import edu.psu.cmpsc221.exceptions.ItemNotInInventoryException;
+
 public class LimitedBulkinessInventorySystem extends InventorySystem {
 
     //constructor that takes in limit of items
@@ -13,6 +15,20 @@ public class LimitedBulkinessInventorySystem extends InventorySystem {
         }
         return false;
     } /* end canAddItem */
+
+
+    Item removeItemNamed(String itemName) throws ItemNotInInventoryException {
+        // Can use lambdas, but we'll do it manually
+        for (Item item : list) {
+            if (item.getName().equals(itemName)) {
+                count = count-item.getBulkiness();
+                list.remove(item);
+                return item;
+            } /* end if */
+        } /* end for */
+
+        throw new ItemNotInInventoryException(itemName);
+    } /* end removeItemNamed */
 
     protected String getInventoryFullMessage() {
         return "This Item wayyyyy to thick";

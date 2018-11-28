@@ -7,7 +7,7 @@ import edu.psu.cmpsc221.exceptions.ItemNotInInventoryException;
 public class Player extends MobileCharacter {
     public Player() {
         // We cannot initialize the current room yet.  We only have a proto-object!
-        inventorySystem = new LimitedBulkinessInventorySystem(6);
+        inventorySystem = new LimitedBulkinessInventorySystem(3);
     } /* end Player */
 
     void addToCurrentRoomInventory(Item item) {
