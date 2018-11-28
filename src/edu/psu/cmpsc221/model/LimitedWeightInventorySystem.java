@@ -8,7 +8,7 @@ public class LimitedWeightInventorySystem extends InventorySystem{
         this.limit=limit;
     }
     protected boolean canAddItem(Item item) {
-        if(count <= limit){
+        if(count+item.getWeight() <= limit){
             count=count+item.getWeight();
             return true;
         }

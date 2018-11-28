@@ -7,7 +7,7 @@ public class LimitedBulkinessInventorySystem extends InventorySystem {
         this.limit=limit;
     }
     protected boolean canAddItem(Item item) {
-        if(count <= limit){
+        if(count+item.getBulkiness() <= limit){
             count=count+item.getBulkiness();
             return true;
         }
@@ -15,7 +15,7 @@ public class LimitedBulkinessInventorySystem extends InventorySystem {
     } /* end canAddItem */
 
     protected String getInventoryFullMessage() {
-        return "Yo Pocket too small";
+        return "This Item wayyyyy to thick";
     } /* end getInventoryFullMessage */
 
     private int limit;
