@@ -8,6 +8,7 @@ public class FiniteInventorySystem extends InventorySystem {
     FiniteInventorySystem(int limit){
         this.limit=limit;
     }
+
     protected boolean canAddItem(Item item) {
         if(count+1 < limit){
             count++;
